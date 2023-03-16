@@ -21,7 +21,9 @@ function Tareas() {
 
   return (
     <>
-    {Datos.map((tarefa)=>{return(<p>{tarefa.descripcion}</p>)})}
+    {Datos.map((tarefa)=>{return(
+    <ol start={tarefa.id +1}><li>{tarefa.descripcion} <input type="checkbox" checked={tarefa.rematada}/></li></ol>
+    )})}
     </>
   );
 }
