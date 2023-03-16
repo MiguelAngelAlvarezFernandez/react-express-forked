@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 
+
+
 function Tareas() {
-    const [Datos, setDatos] = useState ([])
+    const [Tareas, setTareas] = useState ([])
+
+    function manejadorClick(){
+      fetch("http://localhost:8000/tarefa/")
+      .then(manexadorResposta)}
 
     useEffect(
     ()=> {fetch("http://localhost:8000/tarefa/")
@@ -15,15 +21,20 @@ function Tareas() {
     }
 
     function manexadorDatos (novosDatos) {
-        setDatos(novosDatos)
+        setTareas(novosDatos)
     }
 
 
   return (
     <>
-    {Datos.map((tarefa)=>{return(
-    <ol start={tarefa.id +1}><li>{tarefa.descripcion} <input type="checkbox" checked={tarefa.rematada}/></li></ol>
+    <button onClick={manejadorClick}>Actualizar tareas</button>
+    <ol>
+    {Tareas.map((tarea)=>{return(
+    <li key={tarea.id}>{tarea.descripcion} 
+    <span>{tarea.rematada ? " 😎 Feito" : " 😫 Pendente"} </span>
+    </li>
     )})}
+    </ol>
     </>
   );
 }
