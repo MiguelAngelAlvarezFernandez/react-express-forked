@@ -1,5 +1,4 @@
-
-
+import styles from "./Tareas.module.css"
 
 function Tareas({listaTareas}) {
 
@@ -8,13 +7,13 @@ function Tareas({listaTareas}) {
   return (
     <>
     
-    <ol>
+    <ul className={styles.lista}>
     {listaTareas.map((tarea)=>{return(
-    <li key={tarea.id}>{tarea.descripcion} 
-    <span>{tarea.rematada ? " 😎 Feito" : " 😫 Pendente"} </span>
+    <li key={tarea.id}> <input type="checkbox" checked={tarea.rematada}/>
+    {tarea.descripcion} <span>{tarea.rematada ? " 😎 Feito" : " 😫 Pendente"} </span>
     </li>
     )})}
-    </ol>
+    </ul>
     </>
   );
 }

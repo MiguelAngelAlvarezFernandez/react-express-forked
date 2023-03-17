@@ -29,12 +29,16 @@ function App() {
   }
 
   return (
-    <>
+    <div className='documento'>
+      <header>
     <h1>LISTA DE TAREAS:</h1>
-    <button onClick={manejadorClick}>Actualizar tareas</button>
+    <div className='botoneseinput'>
+    <button onClick={manejadorClick}>🔄 Actualizar</button>
     <AgregarTarea aviso={mensaje} setaviso={setmensaje} ></AgregarTarea>
+    </div>
+      </header>
     <Tareas listaTareas={tareas}></Tareas>
-    </>
+    </div>
   );
 }
 

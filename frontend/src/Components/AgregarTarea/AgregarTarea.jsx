@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from "./AgregarTarea.module.css"
 
 function AgregarTarea(props) {
 
@@ -39,7 +40,7 @@ function AgregarTarea(props) {
 
     return (
       <>
-      <input type="text" value={nuevaTarea} onInput={manejadorInput}/>
+      <input className={style.input} type="text" value={nuevaTarea} placeholder="Añade una tarea" size="40" maxlength="40" onInput={manejadorInput}/>
       <button type="button" onClick={manejadorClick}>Añadir</button>
       <p>{props.aviso}</p>
       </>
