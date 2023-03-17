@@ -22,7 +22,7 @@
     border-bottom: solid;
     border-top: solid;
     position: relative;
-    animation: alerta ease-in 5s 1 alternate;
+    animation: alerta ease-in 2s 1 alternate;
 }
 
 
@@ -37,4 +37,8 @@
     background-color: darkseagreen;
     font-family: cursive;
 
+}
+
+.button{
+    cursor: pointer;
 }

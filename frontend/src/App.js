@@ -37,7 +37,7 @@ function App() {
       <header>
     <h1>LISTA DE TAREAS:</h1>
     <div className='botoneseinput'>
-    <button onClick={manejadorClick}>🔄 Actualizar</button>
+    <button className="actualizar" onClick={manejadorClick}>🔄 Actualizar</button>
     <AgregarTarea aviso={mensaje} setaviso={setmensaje} ></AgregarTarea>
     </div>
       </header>
