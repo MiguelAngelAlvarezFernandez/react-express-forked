@@ -30,16 +30,16 @@ function AgregarTarea() {
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
             setnuevaTarea("")
-        } else {setmensaje("Revisa los datos. Algo no está bien ☹️")}
+        } else {setmensaje("Error: Revisa los datos. Algo no está bien ☹️")}
     }
 
     function falloRespuesta (error) {
-        setmensaje("Upss el servidor está 😴")
+        setmensaje("ERROR: Upss el servidor está 😴")
     }
 
     return (
       <>
-      <input type="text" onInput={manejadorInput}/>
+      <input type="text" value={nuevaTarea} onInput={manejadorInput}/>
       <button type="button" onClick={manejadorClick}>Añadir</button>
       <p>{mensaje}</p>
       </>
