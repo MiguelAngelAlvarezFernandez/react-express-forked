@@ -6,6 +6,7 @@ import AgregarTarea from './Components/AgregarTarea/AgregarTarea';
 function App() {
 
   const [tareas, settareas] = useState ([])
+  const [mensaje, setmensaje] = useState("")
 
   function manejadorClick(){
     fetch("http://localhost:8000/tarefa/")
@@ -24,13 +25,14 @@ function App() {
 
   function manexadorDatos (novosDatos) {
       settareas(novosDatos)
+      setmensaje("")
   }
 
   return (
     <>
     <h1>LISTA DE TAREAS:</h1>
     <button onClick={manejadorClick}>Actualizar tareas</button>
-    <AgregarTarea></AgregarTarea>
+    <AgregarTarea mensaje1={mensaje} setmensaje1={setmensaje} ></AgregarTarea>
     <Tareas listaTareas={tareas}></Tareas>
     </>
   );

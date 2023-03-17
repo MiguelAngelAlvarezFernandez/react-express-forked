@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-function AgregarTarea() {
+function AgregarTarea(props) {
 
     const [nuevaTarea, setnuevaTarea] = useState ("")
-    const [mensaje, setmensaje] = useState("")
 
     function manejadorInput (evento){
         setnuevaTarea(evento.target.value)
@@ -30,18 +29,19 @@ function AgregarTarea() {
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
             setnuevaTarea("")
-        } else {setmensaje("Error: Revisa los datos. Algo no está bien ☹️")}
+            props.setmensaje1("Aviso: Pulsa el botón 'Actualizar' para ver la nueva tarea")
+        } else {props.setmensaje1("Error: Revisa los datos. Algo no está bien ☹️")}
     }
 
     function falloRespuesta (error) {
-        setmensaje("ERROR: Upss el servidor está 😴")
+        props.setmensaje1("ERROR: Upss el servidor está 😴")
     }
 
     return (
       <>
       <input type="text" value={nuevaTarea} onInput={manejadorInput}/>
       <button type="button" onClick={manejadorClick}>Añadir</button>
-      <p>{mensaje}</p>
+      <p>{props.mensaje1}</p>
       </>
     );
   }
