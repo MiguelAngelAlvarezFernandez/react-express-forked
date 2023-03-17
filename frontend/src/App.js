@@ -32,7 +32,7 @@ function App() {
     <>
     <h1>LISTA DE TAREAS:</h1>
     <button onClick={manejadorClick}>Actualizar tareas</button>
-    <AgregarTarea mensaje1={mensaje} setmensaje1={setmensaje} ></AgregarTarea>
+    <AgregarTarea aviso={mensaje} setaviso={setmensaje} ></AgregarTarea>
     <Tareas listaTareas={tareas}></Tareas>
     </>
   );

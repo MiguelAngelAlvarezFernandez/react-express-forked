@@ -29,19 +29,19 @@ function AgregarTarea(props) {
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
             setnuevaTarea("")
-            props.setmensaje1("Aviso: Pulsa el botón 'Actualizar' para ver la nueva tarea")
-        } else {props.setmensaje1("Error: Revisa los datos. Algo no está bien ☹️")}
+            props.setaviso("Aviso: Pulsa el botón 'Actualizar' para ver la nueva tarea")
+        } else {props.setaviso("Error: Revisa los datos. Algo no está bien ☹️")}
     }
 
     function falloRespuesta (error) {
-        props.setmensaje1("ERROR: Upss el servidor está 😴")
+        props.setaviso("ERROR: Upss el servidor está 😴")
     }
 
     return (
       <>
       <input type="text" value={nuevaTarea} onInput={manejadorInput}/>
       <button type="button" onClick={manejadorClick}>Añadir</button>
-      <p>{props.mensaje1}</p>
+      <p>{props.aviso}</p>
       </>
     );
   }
