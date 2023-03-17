@@ -10,22 +10,26 @@ function App() {
 
   function manejadorClick(){
     fetch("http://localhost:8000/tarefa/")
-    .then(manexadorResposta)}
+    .then(manejadorResposta).catch(manejadorError)}
 
   useEffect(
   ()=> {fetch("http://localhost:8000/tarefa/")
-  .then(manexadorResposta)},
+  .then(manejadorResposta).catch(manejadorError)},
   []
   )
   
-  function manexadorResposta (resposta) {
-      const promesaDatos = resposta.json()
-      promesaDatos.then(manexadorDatos)
+  function manejadorResposta (respuesta) {
+      if (respuesta.ok) {const promesaDatos = respuesta.json()
+      promesaDatos.then(manexadorDatos)} else {setmensaje('Uppss algo fue mal pincha de nuevo en "Actualizar"')}
   }
 
-  function manexadorDatos (novosDatos) {
-      settareas(novosDatos)
+  function manexadorDatos (nuevosDatos) {
+      settareas(nuevosDatos)
       setmensaje("")
+  }
+
+  function manejadorError(error) {
+    setmensaje("ERROR: Upss el servidor está 😴")
   }
 
   return (

@@ -1,5 +1,6 @@
 .documento{
-  width: 40%;
+  max-width: 700px;
+  min-width: 500px;
   border: solid;
   margin: auto;
 }
@@ -13,13 +14,11 @@ h1 {
   font-style: oblique;
 }
 
-header{
-  position: fixed;
-    width: inherit;
-    background-color: white;
+.botoneseinput{
+  text-align: center;
+  font-weight: bold;
 }
 
-.botoneseinput{
-  border-bottom: solid;
-  text-align: center;
+.actualizar{
+  margin-right: 75px;
 }

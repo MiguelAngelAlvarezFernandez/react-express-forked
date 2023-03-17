@@ -30,7 +30,7 @@ function AgregarTarea(props) {
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
             setnuevaTarea("")
-            props.setaviso("Aviso: Pulsa el botón 'Actualizar' para ver la nueva tarea")
+            props.setaviso("Aviso: Pulsa el botón 'Actualizar' para ver las nuevas tareas")
         } else {props.setaviso("Error: Revisa los datos. Algo no está bien ☹️")}
     }
 
@@ -40,9 +40,12 @@ function AgregarTarea(props) {
 
     return (
       <>
+      <fieldset className={style.nuevasTareas}> 
+        <legend className={style.legend}>¿Alguna otra tarea?</legend>
       <input className={style.input} type="text" value={nuevaTarea} placeholder="Añade una tarea" size="40" maxlength="40" onInput={manejadorInput}/>
       <button type="button" onClick={manejadorClick}>Añadir</button>
-      <p>{props.aviso}</p>
+      </fieldset>
+      {props.aviso && <p className={style.aviso}>{props.aviso}</p>}
       </>
     );
   }

@@ -1,3 +1,40 @@
 .input{
     margin: 0px 10px;
 }
+
+.nuevasTareas{
+    display: inline-block;
+    text-align: end;
+    border-radius: 20px;
+    background-color: bisque
+}
+
+@keyframes alerta {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:black; left:200px; top:0px;}
+    50%  {background-color:red; left:200px; top:200px;}
+    75%  {background-color:black; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+  }
+
+.aviso{
+    background-color: red;
+    border-bottom: solid;
+    border-top: solid;
+    position: relative;
+    animation: alerta ease-in 5s 1 alternate;
+}
+
+
+.legend{
+    border: solid;
+    border-width: thin;
+    border-radius: 20px;
+    background-color: white;
+    font-weight: lighter;
+    font-size: small;
+    padding: 5px;
+    background-color: darkseagreen;
+    font-family: cursive;
+
+}

@@ -1,6 +1,11 @@
 .lista {
-    margin-top: 150px;
     font-family: cursive;
     list-style-type: none;
     padding: unset;
+}
+
+.tarea{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: bisque;
 }

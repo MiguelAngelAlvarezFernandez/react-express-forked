@@ -9,8 +9,8 @@ function Tareas({listaTareas}) {
     
     <ul className={styles.lista}>
     {listaTareas.map((tarea)=>{return(
-    <li key={tarea.id}> <input type="checkbox" checked={tarea.rematada}/>
-    {tarea.descripcion} <span>{tarea.rematada ? " 😎 Feito" : " 😫 Pendente"} </span>
+    <li key={tarea.id}> <div className={styles.tarea}> <input type="checkbox" checked={tarea.rematada}/>
+    {tarea.descripcion} <span>{tarea.rematada ? " 😎 Feito" : " 😫 Pendente"} </span></div>
     </li>
     )})}
     </ul>
