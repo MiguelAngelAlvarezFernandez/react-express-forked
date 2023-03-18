@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./AgregarTarea.module.css"
-import { mensajeError } from "../../lib";
+import { mensajeActualizaTareas, mensajeRevisaDatos, mensajeErrorServidor} from "../../libMesajes";
 
 function AgregarTarea(props) {
 
@@ -31,16 +31,12 @@ function AgregarTarea(props) {
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
             setnuevaTarea("")
-            props.setaviso("Aviso: Pulsa el botón 'Actualizar' para ver las nuevas tareas")
-        } else {props.setaviso("Error: Revisa los datos. Algo no está bien ☹️")}
+            mensajeActualizaTareas(props.setaviso)
+        } else {mensajeRevisaDatos(props.setaviso)}
     }
 
-    /*function falloRespuesta (error) {
-        props.setaviso('ERROR: Upss el servidor está 😴.Inténtalo más tarde o pincha en "Actualizar"')
-    }*/
-
     function falloRespuesta (error) {
-        mensajeError(props.setaviso)
+        mensajeErrorServidor(props.setaviso)
       }
 
     return (

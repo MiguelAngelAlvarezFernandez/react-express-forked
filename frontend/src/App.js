@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useState } from "react";
 import Tareas from './Components/Tareas/Tareas.jsx';
 import AgregarTarea from './Components/AgregarTarea/AgregarTarea';
-import {mensajeError} from "./lib";
+import {mensajeErrorServidor, mensajeErrorActualiza, mensajeReset} from "./libMesajes";
 
 function App() {
 
@@ -21,20 +21,16 @@ function App() {
   
   function manejadorResposta (respuesta) {
       if (respuesta.ok) {const promesaDatos = respuesta.json()
-      promesaDatos.then(manexadorDatos)} else {setmensaje('Uppss algo fue mal pincha de nuevo en "Actualizar"')}
+      promesaDatos.then(manexadorDatos)} else {mensajeErrorActualiza(setmensaje)}
   }
 
   function manexadorDatos (nuevosDatos) {
       settareas(nuevosDatos)
-      setmensaje("")
+      mensajeReset(setmensaje)
   }
 
-  /*function manejadorError(error) {
-    setmensaje('ERROR: Upss el servidor está 😴.Inténtalo más tarde o pincha en "Actualizar"')
-  }*/
-
   function manejadorError (error) {
-    mensajeError(setmensaje)
+    mensajeErrorServidor(setmensaje)
   }
 
   return (
