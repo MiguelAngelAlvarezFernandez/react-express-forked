@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from "react";
 import Tareas from './Components/Tareas/Tareas.jsx';
 import AgregarTarea from './Components/AgregarTarea/AgregarTarea';
+import {mensajeError} from "./lib";
 
 function App() {
 
@@ -28,8 +29,12 @@ function App() {
       setmensaje("")
   }
 
-  function manejadorError(error) {
-    setmensaje("ERROR: Upss el servidor está 😴")
+  /*function manejadorError(error) {
+    setmensaje('ERROR: Upss el servidor está 😴.Inténtalo más tarde o pincha en "Actualizar"')
+  }*/
+
+  function manejadorError (error) {
+    mensajeError(setmensaje)
   }
 
   return (
