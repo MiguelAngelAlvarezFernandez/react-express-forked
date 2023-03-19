@@ -3,6 +3,10 @@
   min-width: 500px;
   border: solid;
   margin: auto;
+  background-image: url(./plumaimagen.png);
+  background-repeat: no-repeat;
+  background-size: 20%;
+  background-position: 15% 30%;
 }
 
 h1 {
@@ -22,4 +26,13 @@ h1 {
 .actualizar{
   margin-right: 75px;
   cursor: pointer;
+  font-family: cursive;
+  background-color: darkseagreen;
+  border-radius: 5px;
+}
+
+.actualizar:hover {
+  background-color: darkseagreen;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
