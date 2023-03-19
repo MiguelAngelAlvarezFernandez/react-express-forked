@@ -9,15 +9,15 @@ function App() {
   const [tareas, settareas] = useState ([])
   const [mensaje, setmensaje] = useState("")
 
+  useEffect(
+    ()=> {fetch("http://localhost:8000/tarefa/")
+    .then(manejadorResposta).catch(manejadorError)},
+    []
+    )
+
   function manejadorClick(){
     fetch("http://localhost:8000/tarefa/")
     .then(manejadorResposta).catch(manejadorError)}
-
-  useEffect(
-  ()=> {fetch("http://localhost:8000/tarefa/")
-  .then(manejadorResposta).catch(manejadorError)},
-  []
-  )
   
   function manejadorResposta (respuesta) {
       if (respuesta.ok) {const promesaDatos = respuesta.json()
@@ -36,13 +36,15 @@ function App() {
   return (
     <div className='documento'>
       <header>
-    <h1>LISTA DE TAREAS:</h1>
-    <div className='botoneseinput'>
-    <button className="actualizar" onClick={manejadorClick}>🔄 Actualizar</button>
-    <AgregarTarea aviso={mensaje} setaviso={setmensaje} ></AgregarTarea>
-    </div>
+        <h1>LISTA DE TAREAS:</h1>
+        <div className='botoneseinput'>
+          <button className="actualizar" onClick={manejadorClick}>🔄 Actualizar</button>
+          <AgregarTarea aviso={mensaje} setaviso={setmensaje} ></AgregarTarea>
+        </div>
       </header>
-    <Tareas listaTareas={tareas}></Tareas>
+      <main>
+        <Tareas listaTareas={tareas}></Tareas>
+      </main>
     </div>
   );
 }

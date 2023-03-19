@@ -5,7 +5,6 @@ function mensajeActualizaTareas (setter) {
 function mensajeRevisaDatos (setter) {
     setter("Error: Revisa los datos. Algo no está bien ☹️")
 }
-
 function mensajeErrorServidor (setter) {
     setter('ERROR: Upss el servidor está 😴.Inténtalo más tarde o pincha en "Actualizar"')
 }
