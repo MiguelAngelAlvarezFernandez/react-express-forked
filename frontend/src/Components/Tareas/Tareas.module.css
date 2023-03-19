@@ -2,6 +2,7 @@
     font-family: cursive;
     list-style-type: none;
     padding: unset;
+    border-top: solid;
 }
 
 .tarea{

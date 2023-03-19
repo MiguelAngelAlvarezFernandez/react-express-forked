@@ -21,11 +21,13 @@ h1 {
 }
 
 .actualizar{
-  margin-right: 75px;
+  margin-right: 30px;
   cursor: pointer;
   font-family: cursive;
   background-color: darkseagreen;
   border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .actualizar:hover {
