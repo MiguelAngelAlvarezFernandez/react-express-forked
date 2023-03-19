@@ -1,5 +1,5 @@
 function mensajeActualizaTareas (setter) {
-    setter("Aviso: Pulsa el botón 'Actualizar' para ver las nuevas tareas")
+    setter("Aviso: Pulsa el botón 'Actualizar' para ver las nuevas tareas añadidas")
 }
 
 function mensajeRevisaDatos (setter) {
