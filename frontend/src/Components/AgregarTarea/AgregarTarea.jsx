@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./AgregarTarea.module.css"
-import { mensajeActualizaTareas, mensajeRevisaDatos, mensajeErrorServidor} from "../../libMesajes";
+import { mensajeActualizaTareas, mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
 
 function AgregarTarea(props) {
 
@@ -11,6 +11,7 @@ function AgregarTarea(props) {
     }
 
     function manejadorClick (){
+        mensajeReset(props.setaviso)
         fetch(
             "http://localhost:8000/tarefa/",
             {
