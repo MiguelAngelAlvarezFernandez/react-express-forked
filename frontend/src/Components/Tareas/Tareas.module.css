@@ -11,9 +11,17 @@
     background-color: bisque;
 }
 
-.rematadaOno{
-    background-color: darkseagreen;
+
+.Feito, .Pendente {
     border-radius: 20px;
     padding: 4px;
     font-size: 90%;
+}
+
+.Feito{
+    background-color: darkseagreen;
+}
+
+.Pendente{
+    background-color: rgb(253, 107, 107);
 }
