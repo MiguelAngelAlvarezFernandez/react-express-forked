@@ -16,6 +16,7 @@ function App() {
     )
 
   function manejadorClick(){
+    mensajeReset(setmensaje)
     fetch("http://localhost:8000/tarefa/")
     .then(manejadorResposta).catch(manejadorError)}
   
