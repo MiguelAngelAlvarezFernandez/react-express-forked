@@ -11,21 +11,26 @@
     background-color: bisque
 }
 
-@keyframes alerta {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:black; left:200px; top:0px;}
-    50%  {background-color:red; left:200px; top:200px;}
-    75%  {background-color:black; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-  }
-
 .aviso{
     background-color: red;
     border-bottom: solid;
     border-top: solid;
     position: relative;
-    animation: alerta ease-in 2s 1 alternate;
+    animation-duration: 3s;
+    animation-name: slidein;
 }
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
 
 
 .legend{
