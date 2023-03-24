@@ -44,7 +44,7 @@ function AgregarTarea(props) {
       <>
         <fieldset className={style.nuevasTareas}> 
             <legend className={style.legend}>¿Alguna otra tarea?</legend>
-            <input className={style.input} type="text" value={nuevaTarea} placeholder="Añade una tarea" size="40" maxlength="50" onInput={manejadorInput}/>
+            <input className={style.input} type="text" value={nuevaTarea} placeholder="Añade una tarea" size="40" maxLength="50" onInput={manejadorInput}/>
             <button className={style.button} type="button" onClick={manejadorClick}>Añadir</button>
         </fieldset>
         {props.aviso && <p className={style.aviso}>{props.aviso}</p>}

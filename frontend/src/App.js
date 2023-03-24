@@ -44,7 +44,7 @@ function App() {
         </div>
       </header>
       <main>
-        <Tareas listaTareas={tareas}></Tareas>
+        <Tareas listaTareas={tareas} setaviso={setmensaje}></Tareas>
       </main>
     </div>
   );
