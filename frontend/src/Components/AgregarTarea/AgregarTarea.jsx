@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./AgregarTarea.module.css"
 import { mensajeActualizaTareas, mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
 
-function AgregarTarea(props) {
+function AgregarTarea({aviso, setaviso}) {
 
     const [nuevaTarea, setnuevaTarea] = useState ("")
 
@@ -11,7 +11,7 @@ function AgregarTarea(props) {
     }
 
     function manejadorClick (){
-        mensajeReset(props.setaviso)
+        mensajeReset(setaviso)
         fetch(
             "http://localhost:8000/tarefa/",
             {
@@ -32,12 +32,12 @@ function AgregarTarea(props) {
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
             setnuevaTarea("")
-            mensajeActualizaTareas(props.setaviso)
-        } else {mensajeRevisaDatos(props.setaviso)}
+            mensajeActualizaTareas(setaviso)
+        } else {mensajeRevisaDatos(setaviso)}
     }
 
     function falloRespuesta (error) {
-        mensajeErrorServidor(props.setaviso)
+        mensajeErrorServidor(setaviso)
       }
 
     return (
@@ -47,7 +47,7 @@ function AgregarTarea(props) {
             <input className={style.input} type="text" value={nuevaTarea} placeholder="Añade una tarea" size="40" maxLength="50" onInput={manejadorInput}/>
             <button className={style.button} type="button" onClick={manejadorClick}>Añadir</button>
         </fieldset>
-        {props.aviso && <p className={style.aviso}>{props.aviso}</p>}
+        {aviso && <p className={style.aviso}>{aviso}</p>}
       </>
     );
   }

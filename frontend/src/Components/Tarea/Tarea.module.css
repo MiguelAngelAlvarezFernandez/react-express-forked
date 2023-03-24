@@ -1,0 +1,27 @@
+.lista {
+    font-family: cursive;
+    list-style-type: none;
+    padding: unset;
+    border-top: solid;
+}
+
+.tarea{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: bisque;
+}
+
+
+.Feito, .Pendente {
+    border-radius: 20px;
+    padding: 4px;
+    font-size: 90%;
+}
+
+.Feito{
+    background-color: darkseagreen;
+}
+
+.Pendente{
+    background-color: rgb(253, 107, 107);
+}
