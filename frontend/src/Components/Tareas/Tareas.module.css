@@ -3,4 +3,6 @@
     list-style-type: none;
     padding: unset;
     border-top: solid;
+    height: 500px;
+    overflow-y: scroll;
 }
