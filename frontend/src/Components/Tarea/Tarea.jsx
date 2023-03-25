@@ -1,5 +1,5 @@
 import styles from "./Tarea.module.css"
-import { mensajeActualizaTareas, mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
+import { mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
 
 function Tarea ({tarea, setaviso, autoUpdate2}) {
 
@@ -41,7 +41,6 @@ function Tarea ({tarea, setaviso, autoUpdate2}) {
 
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
-            //mensajeActualizaTareas(setaviso)
             autoUpdate2()
         } else {mensajeRevisaDatos(setaviso)}
     }
