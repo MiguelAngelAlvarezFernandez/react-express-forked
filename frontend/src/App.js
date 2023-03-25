@@ -45,11 +45,11 @@ function App() {
         <h1>LISTA DE TAREAS:</h1>
         <div className='botoneseinput'>
           <button className="actualizar" onClick={manejadorClick}>🔄 Actualizar</button>
-          <AgregarTarea aviso={mensaje} setaviso={setmensaje} autoUpdate={autoUpdate}></AgregarTarea>
+          <AgregarTarea aviso={mensaje} setaviso={setmensaje} autoUpdate1={autoUpdate}></AgregarTarea>
         </div>
       </header>
       <main>
-        <Tareas listaTareas={tareas} setaviso={setmensaje}></Tareas>
+        <Tareas listaTareas={tareas} setaviso={setmensaje} autoUpdate1={autoUpdate}></Tareas>
       </main>
     </div>
   );

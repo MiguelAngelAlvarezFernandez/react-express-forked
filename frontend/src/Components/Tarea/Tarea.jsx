@@ -1,7 +1,7 @@
 import styles from "./Tarea.module.css"
 import { mensajeActualizaTareas, mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
 
-function Tarea ({tarea, setaviso}) {
+function Tarea ({tarea, setaviso, autoUpdate2}) {
 
     function manejadorDelete(){
         mensajeReset(setaviso)
@@ -41,7 +41,8 @@ function Tarea ({tarea, setaviso}) {
 
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
-            mensajeActualizaTareas(setaviso)
+            //mensajeActualizaTareas(setaviso)
+            autoUpdate2()
         } else {mensajeRevisaDatos(setaviso)}
     }
     

@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./AgregarTarea.module.css"
 import { mensajeActualizaTareas, mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
 
-function AgregarTarea({aviso, setaviso, autoUpdate}) {
+function AgregarTarea({aviso, setaviso, autoUpdate1}) {
 
     const [nuevaTarea, setnuevaTarea] = useState ("")
 
@@ -33,7 +33,7 @@ function AgregarTarea({aviso, setaviso, autoUpdate}) {
         if (respuesta.ok) {
             setnuevaTarea("")
             //mensajeActualizaTareas(setaviso)
-            autoUpdate()
+            autoUpdate1()
         } else {mensajeRevisaDatos(setaviso)}
     }
 
