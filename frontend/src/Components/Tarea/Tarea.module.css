@@ -2,6 +2,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: bisque;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -9,6 +11,7 @@
     border-radius: 20px;
     padding: 4px;
     font-size: 90%;
+    margin-left: 10px;
 }
 
 .Feito{
@@ -18,3 +21,17 @@
 .Pendente{
     background-color: rgb(253, 107, 107);
 }
+
+.button{
+    margin-left: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    border: none;
+    background-color: bisque;
+}
+
+.button:hover {
+    background-color: rgb(83, 107, 83);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 20px;
+  }

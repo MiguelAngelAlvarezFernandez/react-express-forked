@@ -52,8 +52,8 @@ function Tarea ({tarea, setaviso, autoUpdate2}) {
     return (
         <>
         <li key={tarea.id}> <div className={styles.tarea}> <input onClick={manejadorPut} type="checkbox" defaultChecked={tarea.rematada}/>
-        {tarea.descripcion} <span className={tarea.rematada ? styles.Feito : styles.Pendente}>{tarea.rematada ? " 😎 Feito" : " 😫 Pendente"} </span></div>
-        <button onClick={manejadorDelete}>delete</button></li>
+        {tarea.descripcion} <span className={tarea.rematada ? styles.Feito : styles.Pendente}>{tarea.rematada ? " 😎 Feito" : " 😫 Pendente"} </span>
+        <button className={styles.button} onClick={manejadorDelete}>🗑️</button></div></li>
         </>
     )
 }
