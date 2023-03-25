@@ -19,6 +19,11 @@ function App() {
     mensajeReset(setmensaje)
     fetch("http://localhost:8000/tarefa/")
     .then(manejadorResposta).catch(manejadorError)}
+
+    function autoUpdate(){
+      mensajeReset(setmensaje)
+      fetch("http://localhost:8000/tarefa/")
+      .then(manejadorResposta).catch(manejadorError)}
   
   function manejadorResposta (respuesta) {
       if (respuesta.ok) {const promesaDatos = respuesta.json()
@@ -40,7 +45,7 @@ function App() {
         <h1>LISTA DE TAREAS:</h1>
         <div className='botoneseinput'>
           <button className="actualizar" onClick={manejadorClick}>🔄 Actualizar</button>
-          <AgregarTarea aviso={mensaje} setaviso={setmensaje} ></AgregarTarea>
+          <AgregarTarea aviso={mensaje} setaviso={setmensaje} autoUpdate={autoUpdate}></AgregarTarea>
         </div>
       </header>
       <main>
