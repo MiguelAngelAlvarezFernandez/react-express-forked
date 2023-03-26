@@ -1,7 +1,11 @@
 import styles from "./Tarea.module.css"
 import { mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
+import { useContext } from "react";
+import {autoUpdateContext} from "../../App"
 
-function Tarea ({tarea, setaviso, autoUpdate2}) {
+function Tarea ({tarea, setaviso}) {
+
+    const autoUpDate = useContext(autoUpdateContext)
 
     function manejadorDelete(){
         mensajeReset(setaviso)
@@ -41,7 +45,7 @@ function Tarea ({tarea, setaviso, autoUpdate2}) {
 
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
-            autoUpdate2()
+            autoUpDate()
         } else {mensajeRevisaDatos(setaviso)}
     }
     

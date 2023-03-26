@@ -1,8 +1,10 @@
 import './App.css';
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import Tareas from './Components/Tareas/Tareas.jsx';
 import AgregarTarea from './Components/AgregarTarea/AgregarTarea';
 import {mensajeErrorServidor, mensajeErrorActualiza, mensajeReset} from "./libMesajes";
+
+export const autoUpdateContext = createContext()
 
 function App() {
 
@@ -40,18 +42,20 @@ function App() {
   }
 
   return (
+    <autoUpdateContext.Provider value={autoUpdate}>
     <div className='documento'>
       <header>
         <h1>LISTA DE TAREAS:</h1>
         <div className='botoneseinput'>
           <button className="actualizar" onClick={manejadorClick}>🔄 Actualizar</button>
-          <AgregarTarea aviso={mensaje} setaviso={setmensaje} autoUpdate1={autoUpdate}></AgregarTarea>
+          <AgregarTarea aviso={mensaje} setaviso={setmensaje}></AgregarTarea>
         </div>
       </header>
       <main>
-        <Tareas listaTareas={tareas} setaviso={setmensaje} autoUpdate1={autoUpdate}></Tareas>
+        <Tareas listaTareas={tareas} setaviso={setmensaje} /*autoUpdate1={autoUpdate}*/></Tareas>
       </main>
     </div>
+    </autoUpdateContext.Provider>
   );
 }
 
