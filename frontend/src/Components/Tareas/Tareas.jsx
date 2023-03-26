@@ -1,7 +1,7 @@
 import styles from "./Tareas.module.css";
 import  Tarea from "../Tarea/Tarea.jsx";
 
-function Tareas({listaTareas, setaviso, autoUpdate1}) {
+function Tareas({listaTareas, setaviso}) {
 
   return (
     <ul className={styles.lista}>
