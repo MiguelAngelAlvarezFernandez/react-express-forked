@@ -1,14 +1,15 @@
 import styles from "./Tarea.module.css"
 import { mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
 import { useContext } from "react";
-import {autoUpdateContext} from "../../App"
+import {autoUpdateContext, setmensajeContext} from "../../App"
 
-function Tarea ({tarea, setaviso}) {
+function Tarea ({tarea}) {
 
     const autoUpDate = useContext(autoUpdateContext)
+    const setmensaje = useContext(setmensajeContext)
 
     function manejadorDelete(){
-        mensajeReset(setaviso)
+        mensajeReset(setmensaje)
         fetch(
             "http://localhost:8000/tarefa/",
             {
@@ -25,7 +26,7 @@ function Tarea ({tarea, setaviso}) {
     }
 
     function manejadorPut(){
-        mensajeReset(setaviso)
+        mensajeReset(setmensaje)
         fetch(
             "http://localhost:8000/tarefa/",
             {
@@ -46,17 +47,17 @@ function Tarea ({tarea, setaviso}) {
     function resultadoRespuestaOk(respuesta) {
         if (respuesta.ok) {
             autoUpDate()
-        } else {mensajeRevisaDatos(setaviso)}
+        } else {mensajeRevisaDatos(setmensaje)}
     }
     
     function falloRespuesta (error) {
-        mensajeErrorServidor(setaviso)
+        mensajeErrorServidor(setmensaje)
     }
 
     return (
         <>
         <li key={tarea.id}> <div className={styles.tarea}> <input onClick={manejadorPut} type="checkbox" defaultChecked={tarea.rematada}/>
-        {tarea.descripcion} <span className={tarea.rematada ? styles.Feito : styles.Pendente}>{tarea.rematada ? " 😎 Feito" : " 😫 Pendente"} </span>
+        {tarea.descripcion} <span className={tarea.rematada ? styles.Feito : styles.Pendente}>{tarea.rematada===true ? " 😎 Feito" : " 😫 Pendente"} </span>
         <button className={styles.button} onClick={manejadorDelete}>🗑️</button></div></li>
         </>
     )

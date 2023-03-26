@@ -1,11 +1,12 @@
 import { useState, useContext } from "react";
 import style from "./AgregarTarea.module.css"
 import { mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
-import {autoUpdateContext} from "../../App"
+import {autoUpdateContext, setmensajeContext} from "../../App"
 
-function AgregarTarea({aviso, setaviso}) {
+function AgregarTarea({aviso}) {
 
     const autoUpDate = useContext(autoUpdateContext)
+    const setmensaje = useContext(setmensajeContext)
     const [nuevaTarea, setnuevaTarea] = useState ("")
 
     function manejadorInput (evento){
@@ -13,7 +14,7 @@ function AgregarTarea({aviso, setaviso}) {
     }
 
     function manejadorClick (){
-        mensajeReset(setaviso)
+        mensajeReset(setmensaje)
         fetch(
             "http://localhost:8000/tarefa/",
             {
@@ -35,11 +36,11 @@ function AgregarTarea({aviso, setaviso}) {
         if (respuesta.ok) {
             setnuevaTarea("")
             autoUpDate()
-        } else {mensajeRevisaDatos(setaviso)}
+        } else {mensajeRevisaDatos(setmensaje)}
     }
 
     function falloRespuesta (error) {
-        mensajeErrorServidor(setaviso)
+        mensajeErrorServidor(setmensaje)
       }
 
     return (

@@ -5,6 +5,7 @@ import AgregarTarea from './Components/AgregarTarea/AgregarTarea';
 import {mensajeErrorServidor, mensajeErrorActualiza, mensajeReset} from "./libMesajes";
 
 export const autoUpdateContext = createContext()
+export const setmensajeContext = createContext()
 
 function App() {
 
@@ -43,18 +44,20 @@ function App() {
 
   return (
     <autoUpdateContext.Provider value={autoUpdate}>
+    <setmensajeContext.Provider value={setmensaje}>
     <div className='documento'>
       <header>
         <h1>LISTA DE TAREAS:</h1>
         <div className='botoneseinput'>
           <button className="actualizar" onClick={manejadorClick}>🔄 Actualizar</button>
-          <AgregarTarea aviso={mensaje} setaviso={setmensaje}></AgregarTarea>
+          <AgregarTarea aviso={mensaje}></AgregarTarea>
         </div>
       </header>
       <main>
-        <Tareas listaTareas={tareas} setaviso={setmensaje} /*autoUpdate1={autoUpdate}*/></Tareas>
+        <Tareas listaTareas={tareas}></Tareas>
       </main>
     </div>
+    </setmensajeContext.Provider>
     </autoUpdateContext.Provider>
   );
 }
