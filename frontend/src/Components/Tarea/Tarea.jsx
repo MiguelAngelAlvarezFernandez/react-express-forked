@@ -56,8 +56,8 @@ function Tarea ({tarea}) {
 
     return (
         <>
-        <li key={tarea.id}> <div className={styles.tarea}> <input onClick={manejadorPut} type="checkbox" defaultChecked={tarea.rematada}/>
-        {tarea.descripcion} <span className={tarea.rematada ? styles.Feito : styles.Pendente}>{tarea.rematada===true ? " 😎 Feito" : " 😫 Pendente"} </span>
+        <li key={tarea.id}> <div className={styles.tarea}> <input onClick={manejadorPut} type="checkbox" checked={tarea.rematada}/>
+        {tarea.descripcion} <span className={tarea.rematada ? styles.Feito : styles.Pendente}>{tarea.rematada ? " 😎 Feito" : " 😫 Pendente"} </span>
         <button className={styles.button} onClick={manejadorDelete}>🗑️</button></div></li>
         </>
     )
