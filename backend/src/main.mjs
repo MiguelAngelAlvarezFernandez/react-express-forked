@@ -45,6 +45,24 @@ db.run(`
         )
 `);
 
+app.delete("/tarefa/", (peticion, respuesta)=>{
+    db.run(
+        'DELETE FROM tareas WHERE id = ?',
+        [peticion.body.id],
+        (error)=>{
+            if (error) {
+                console.error(error) 
+                respuesta.status(500)
+                respuesta.send(`Error accediendo a la base de datos.
+                Consulta la consola del backend para más información`)
+            } else {
+                respuesta.status(200)
+                respuesta.send("Ok")
+            }
+        }
+    )
+})
+
 app.post("/tarefa/", (peticion, respuesta)=>{
     db.run( // Ejemplo de inserción en la base de datos
         `INSERT INTO tareas(id, descripcion, rematada) VALUES (?, ?, ?)`,
@@ -173,7 +191,7 @@ respuesta.status(200)
 respuesta.send("Ok")}
 })
 
-app.delete("/tarefa/", (peticion, respuesta)=>{
+/*app.delete("/tarefa/", (peticion, respuesta)=>{
 const indice = tarefas.findIndex (
 function (tarefa) {
 return peticion.body.id === tarefa.id
@@ -185,7 +203,7 @@ return
 } else {tarefas.splice(indice, 1)
 respuesta.status(200)
 respuesta.send("Ok")}
-})
+})*/
 
 
 app.listen( 8000,()=>{
