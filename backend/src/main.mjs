@@ -6,7 +6,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const tarefas = [
+/*const tarefas = [
     {
         id: 0,
         descripcion: "Unha tarefa de exemplo",
@@ -17,13 +17,13 @@ const tarefas = [
         descripcion: "Outra tarefa de exemplo",
         rematada: false,
     },
-]
+]*/
 
 /**
  * Creamos el conector con la base de datos "base-de-datos.db"
  * Este conector nos permitira "hablar" SQL con la base de datos.
  */
-const db = new sqlite3.Database('./base-de-datos.db', (error) => {
+const db = new sqlite3.Database('./base-de-datos.sqlite', (error) => {
     if (error) console.error(error)
     else console.log('Conectada con la base de datos.');
 });
