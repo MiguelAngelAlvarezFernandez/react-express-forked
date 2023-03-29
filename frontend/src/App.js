@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState, createContext } from "react";
 import Tareas from './Components/Tareas/Tareas.jsx';
 import AgregarTarea from './Components/AgregarTarea/AgregarTarea';
+import ButtonsFilters from './Components/ButtonsFilters/ButtonsFilters';
 import {mensajeErrorServidor, mensajeErrorActualiza, mensajeReset} from "./libMesajes";
 
 export const autoUpdateContext = createContext()
@@ -51,6 +52,7 @@ function App() {
         <div className='botoneseinput'>
           <button className="actualizar" onClick={manejadorClick}>🔄 Actualizar</button>
           <AgregarTarea aviso={mensaje}></AgregarTarea>
+          <ButtonsFilters setTareasFiltradas={settareas}/>
         </div>
       </header>
       <main>
