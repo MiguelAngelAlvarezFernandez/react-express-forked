@@ -8,9 +8,16 @@ function ButtonsFilters({setTareasFiltradas}) {
 
     const setmensaje = useContext(setmensajeContext)
 
-    function manejadorClick () {
+    function manejadorClickPendentes () {
         mensajeReset(setmensaje)
         fetch("http://localhost:8000/tarefa/?rematada=0")
+        .then(manejadorResposta)
+        .catch(manejadorError)
+    }
+
+    function manejadorClickRematadas () {
+        mensajeReset(setmensaje)
+        fetch("http://localhost:8000/tarefa/?rematada=1")
         .then(manejadorResposta)
         .catch(manejadorError)
     }
@@ -31,7 +38,8 @@ function ButtonsFilters({setTareasFiltradas}) {
 
     return (
       <>
-        <button type="button" onClick={manejadorClick}>Tareas Pendientes</button>
+        <button type="button" onClick={manejadorClickPendentes}>Tareas Pendientes</button>
+        <button type="button" onClick={manejadorClickRematadas}>Tareas Rematadas</button>
       </>
     );
   }
