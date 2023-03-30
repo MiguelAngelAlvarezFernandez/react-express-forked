@@ -6,19 +6,6 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-/*const tarefas = [
-    {
-        id: 0,
-        descripcion: "Unha tarefa de exemplo",
-        rematada: true,
-    },
-    {
-        id: 1,
-        descripcion: "Outra tarefa de exemplo",
-        rematada: false,
-    },
-]*/
-
 /**
  * Creamos el conector con la base de datos "base-de-datos.db"
  * Este conector nos permitira "hablar" SQL con la base de datos.
