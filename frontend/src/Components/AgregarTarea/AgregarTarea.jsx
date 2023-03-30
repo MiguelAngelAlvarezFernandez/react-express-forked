@@ -22,7 +22,6 @@ function AgregarTarea({aviso}) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(
                     {
-                        id: Date.now(),
                         descripcion: nuevaTarea,
                         rematada: false,
                     }
