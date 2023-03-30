@@ -52,8 +52,8 @@ app.delete("/tarefa/", (peticion, respuesta)=>{
 
 app.post("/tarefa/", (peticion, respuesta)=>{
     db.run( // Ejemplo de inserción en la base de datos
-        `INSERT INTO tareas(id, descripcion, rematada) VALUES (?, ?, ?)`,
-        [peticion.body.id, peticion.body.descripcion, peticion.body.rematada],
+        `INSERT INTO tareas(descripcion, rematada) VALUES (?, ?)`,
+        [peticion.body.descripcion, peticion.body.rematada],
         (error) => {
             if (error) {
                 console.error(error) 
