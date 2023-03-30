@@ -106,16 +106,11 @@ app.get("/tarefa/", (peticion, respuesta)=>{
                     respuesta.send(`Error accediendo a la base de datos.
                     Consulta la consola del backend para más información`)
                 }
-                else {
-                    if (tarea.length > 0) {
+                else { // Tanto si hay datos que cumplan la condición como sino la respuesta será respuesta.ok
+                       // puesto que extrictamente no hay error, solo ausencia de datos.
                         const JSONtarea = JSON.stringify(tarea)
                         respuesta.status(200)
                         respuesta.send(JSONtarea)
-                    } else {
-                        respuesta.status(404)
-                        respuesta.send(`No se encontró niguna tarea con estado ${peticion.query.rematada}`)
-                    }
-
                 }
             }
     
