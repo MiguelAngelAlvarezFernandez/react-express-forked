@@ -13,9 +13,13 @@ function mensajeErrorActualiza (setter) {
     setter("Uppss algo fue mal pincha de nuevo en 'Actualizar'")
 }
 
+function mensajeNoHayTareas (setter) {
+    setter("Aviso: No hay ninguna tarea que mostrar")
+}
+
 function mensajeReset (setter) {
     setter("")
 }
 
 
-export {mensajeActualizaTareas, mensajeRevisaDatos, mensajeErrorServidor, mensajeErrorActualiza, mensajeReset}
+export {mensajeActualizaTareas, mensajeRevisaDatos, mensajeErrorServidor, mensajeErrorActualiza, mensajeNoHayTareas, mensajeReset}
