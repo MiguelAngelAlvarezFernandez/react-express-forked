@@ -1,4 +1,4 @@
-import {mensajeErrorActualiza, mensajeReset, mensajeErrorServidor} from "../../libMesajes";
+import {mensajeErrorActualiza, mensajeReset, mensajeErrorServidor, mensajeNoHayTareas} from "../../libMesajes";
 import { useContext } from "react";
 import {setmensajeContext} from "../../App"
 
@@ -28,8 +28,10 @@ function ButtonsFilters({setTareasFiltradas}) {
     }
   
     function manexadorDatos (nuevosDatos) {
+        if (nuevosDatos.length >0) 
+        {mensajeReset(setmensaje)}
+        else {mensajeNoHayTareas(setmensaje)}
         setTareasFiltradas (nuevosDatos)
-        mensajeReset(setmensaje)
     }
   
     function manejadorError (error) {
