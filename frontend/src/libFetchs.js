@@ -1,6 +1,5 @@
 function solicitudesFetch(query,method, datosEnviados, manejadorRespuesta, manejadorError){
 
-    return(
         fetch(
             `http://localhost:8000/tarefa/${query}`,
             method !=="GET" ? {
@@ -11,9 +10,7 @@ function solicitudesFetch(query,method, datosEnviados, manejadorRespuesta, manej
         )
         .then(manejadorRespuesta)
         .catch(manejadorError)
-    );
-
-    
+    ;
 };
 
 export {solicitudesFetch}
