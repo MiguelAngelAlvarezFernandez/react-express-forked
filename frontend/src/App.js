@@ -23,13 +23,13 @@ function App() {
 
   function manejadorClick(){
     mensajeReset(setmensaje)
-    fetch("http://localhost:8000/tarefa/")
-    .then(manejadorRespuesta).catch(manejadorError)}
+    solicitudesFetch("", "GET", "", manejadorRespuesta, manejadorError)
+    }
 
-    function autoUpdate(){
-      mensajeReset(setmensaje)
-      fetch("http://localhost:8000/tarefa/")
-      .then(manejadorRespuesta).catch(manejadorError)}
+  function autoUpdate(){
+    mensajeReset(setmensaje)
+    solicitudesFetch("", "GET", "", manejadorRespuesta, manejadorError)
+  }
   
   function manejadorRespuesta (respuesta) {
       if (respuesta.ok) {const promesaDatos = respuesta.json()
