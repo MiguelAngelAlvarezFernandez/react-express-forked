@@ -27,18 +27,18 @@ function AgregarTarea({aviso}) {
                     }
                 ),
             }
-        ).then(resultadoRespuestaOk)
-        .catch(falloRespuesta)
+        ).then(manejadorRespuesta)
+        .catch(manejadorError)
     }
 
-    function resultadoRespuestaOk(respuesta) {
+    function manejadorRespuesta(respuesta) {
         if (respuesta.ok) {
             setnuevaTarea("")
             autoUpDate()
         } else {mensajeRevisaDatos(setmensaje)}
     }
 
-    function falloRespuesta (error) {
+    function manejadorError (error) {
         mensajeErrorServidor(setmensaje)
       }
 

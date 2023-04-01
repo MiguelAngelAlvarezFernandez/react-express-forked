@@ -11,23 +11,23 @@ function ButtonsFilters({setTareasFiltradas}) {
     function manejadorClickPendentes () {
         mensajeReset(setmensaje)
         fetch("http://localhost:8000/tarefa/?rematada=0")
-        .then(manejadorResposta)
+        .then(manejadorRespuesta)
         .catch(manejadorError)
     }
 
     function manejadorClickRematadas () {
         mensajeReset(setmensaje)
         fetch("http://localhost:8000/tarefa/?rematada=1")
-        .then(manejadorResposta)
+        .then(manejadorRespuesta)
         .catch(manejadorError)
     }
 
-    function manejadorResposta (respuesta) {
+    function manejadorRespuesta (respuesta) {
         if (respuesta.ok) {const promesaDatos = respuesta.json()
-        promesaDatos.then(manexadorDatos)} else {mensajeErrorActualiza(setmensaje)}
+        promesaDatos.then(manejadorDatos)} else {mensajeErrorActualiza(setmensaje)}
     }
   
-    function manexadorDatos (nuevosDatos) {
+    function manejadorDatos (nuevosDatos) {
         if (nuevosDatos.length >0) 
         {mensajeReset(setmensaje)}
         else {mensajeNoHayTareas(setmensaje)}

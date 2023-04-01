@@ -21,8 +21,8 @@ function Tarea ({tarea}) {
                     }
                 ),
             }
-        ).then(resultadoRespuestaOk)
-        .catch(falloRespuesta)
+        ).then(manejadorRespuesta)
+        .catch(manejadorError)
     }
 
     function manejadorPut(){
@@ -40,17 +40,17 @@ function Tarea ({tarea}) {
                     }
                 ),
             }
-        ).then(resultadoRespuestaOk)
-        .catch(falloRespuesta)
+        ).then(manejadorRespuesta)
+        .catch(manejadorError)
     }
 
-    function resultadoRespuestaOk(respuesta) {
+    function manejadorRespuesta(respuesta) {
         if (respuesta.ok) {
             autoUpDate()
         } else {mensajeRevisaDatos(setmensaje)}
     }
     
-    function falloRespuesta (error) {
+    function manejadorError (error) {
         mensajeErrorServidor(setmensaje)
     }
 

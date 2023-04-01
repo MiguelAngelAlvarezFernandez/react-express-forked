@@ -15,26 +15,26 @@ function App() {
 
   useEffect(
     ()=> {fetch("http://localhost:8000/tarefa/")
-    .then(manejadorResposta).catch(manejadorError)},
+    .then(manejadorRespuesta).catch(manejadorError)},
     []
     )
 
   function manejadorClick(){
     mensajeReset(setmensaje)
     fetch("http://localhost:8000/tarefa/")
-    .then(manejadorResposta).catch(manejadorError)}
+    .then(manejadorRespuesta).catch(manejadorError)}
 
     function autoUpdate(){
       mensajeReset(setmensaje)
       fetch("http://localhost:8000/tarefa/")
-      .then(manejadorResposta).catch(manejadorError)}
+      .then(manejadorRespuesta).catch(manejadorError)}
   
-  function manejadorResposta (respuesta) {
+  function manejadorRespuesta (respuesta) {
       if (respuesta.ok) {const promesaDatos = respuesta.json()
-      promesaDatos.then(manexadorDatos)} else {mensajeErrorActualiza(setmensaje)}
+      promesaDatos.then(manejadorDatos)} else {mensajeErrorActualiza(setmensaje)}
   }
 
-  function manexadorDatos (nuevosDatos) {
+  function manejadorDatos (nuevosDatos) {
       settareas(nuevosDatos)
       mensajeReset(setmensaje)
   }
