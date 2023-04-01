@@ -1,4 +1,4 @@
-function solicitudesFetch(query, method, datosEnviados, manejadorRespuesta, manejadorError){
+function solicitudesFetch(query,method, datosEnviados, manejadorRespuesta, manejadorError){
 
     return(
         fetch(

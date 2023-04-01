@@ -1,6 +1,7 @@
 import {mensajeErrorActualiza, mensajeReset, mensajeErrorServidor, mensajeNoHayTareas} from "../../libMesajes";
 import { useContext } from "react";
 import {setmensajeContext} from "../../App"
+import {solicitudesFetch} from "../../libFetchs"
 
 
 
@@ -10,16 +11,12 @@ function ButtonsFilters({setTareasFiltradas}) {
 
     function manejadorClickPendentes () {
         mensajeReset(setmensaje)
-        fetch("http://localhost:8000/tarefa/?rematada=0")
-        .then(manejadorRespuesta)
-        .catch(manejadorError)
+        solicitudesFetch("?rematada=0", "GET","" , manejadorRespuesta, manejadorError)
     }
 
     function manejadorClickRematadas () {
         mensajeReset(setmensaje)
-        fetch("http://localhost:8000/tarefa/?rematada=1")
-        .then(manejadorRespuesta)
-        .catch(manejadorError)
+        solicitudesFetch("?rematada=1", "GET","" , manejadorRespuesta, manejadorError)
     }
 
     function manejadorRespuesta (respuesta) {
