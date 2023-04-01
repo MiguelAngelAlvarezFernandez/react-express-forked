@@ -2,12 +2,18 @@ import { useState, useContext } from "react";
 import style from "./AgregarTarea.module.css"
 import { mensajeRevisaDatos, mensajeErrorServidor, mensajeReset} from "../../libMesajes";
 import {autoUpdateContext, setmensajeContext} from "../../App"
+import {solicitudesFetch} from "../../libFetchs"
 
 function AgregarTarea({aviso}) {
 
     const autoUpDate = useContext(autoUpdateContext)
     const setmensaje = useContext(setmensajeContext)
     const [nuevaTarea, setnuevaTarea] = useState ("")
+    const datosEnviados ={
+                            descripcion: nuevaTarea,
+                            rematada: false,
+                         }
+    
 
     function manejadorInput (evento){
         setnuevaTarea(evento.target.value)
@@ -15,20 +21,7 @@ function AgregarTarea({aviso}) {
 
     function manejadorClick (){
         mensajeReset(setmensaje)
-        fetch(
-            "http://localhost:8000/tarefa/",
-            {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(
-                    {
-                        descripcion: nuevaTarea,
-                        rematada: false,
-                    }
-                ),
-            }
-        ).then(manejadorRespuesta)
-        .catch(manejadorError)
+        solicitudesFetch("", "POST", datosEnviados, manejadorRespuesta, manejadorError)
     }
 
     function manejadorRespuesta(respuesta) {
