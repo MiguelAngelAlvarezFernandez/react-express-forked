@@ -16,7 +16,7 @@ function App() {
 
   useEffect(
     ()=> {
-      solicitudesFetch("GET", "", manejadorRespuesta, manejadorError)
+      solicitudesFetch("", "GET", "", manejadorRespuesta, manejadorError)
     },
     []
     )

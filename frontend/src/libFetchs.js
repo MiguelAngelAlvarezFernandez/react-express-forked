@@ -1,8 +1,8 @@
-function solicitudesFetch(method, datosEnviados, manejadorRespuesta, manejadorError){
+function solicitudesFetch(query, method, datosEnviados, manejadorRespuesta, manejadorError){
 
     return(
         fetch(
-            `http://localhost:8000/tarefa/`,
+            `http://localhost:8000/tarefa/${query}`,
             method !=="GET" ? {
               method: method,
               headers: {'Content-Type': 'application/json'},
