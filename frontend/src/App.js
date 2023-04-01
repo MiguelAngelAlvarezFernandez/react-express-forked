@@ -4,6 +4,7 @@ import Tareas from './Components/Tareas/Tareas.jsx';
 import AgregarTarea from './Components/AgregarTarea/AgregarTarea';
 import ButtonsFilters from './Components/ButtonsFilters/ButtonsFilters';
 import {mensajeErrorServidor, mensajeErrorActualiza, mensajeReset} from "./libMesajes";
+import {solicitudesFetch} from "./libFetchs"
 
 export const autoUpdateContext = createContext()
 export const setmensajeContext = createContext()
@@ -14,8 +15,9 @@ function App() {
   const [mensaje, setmensaje] = useState("")
 
   useEffect(
-    ()=> {fetch("http://localhost:8000/tarefa/")
-    .then(manejadorRespuesta).catch(manejadorError)},
+    ()=> {
+      solicitudesFetch("GET", "", manejadorRespuesta, manejadorError)
+    },
     []
     )
 
