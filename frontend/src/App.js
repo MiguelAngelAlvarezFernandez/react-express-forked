@@ -13,6 +13,7 @@ function App() {
 
   const [tareas, settareas] = useState ([])
   const [mensaje, setmensaje] = useState("")
+  const [idVistaTareas, setidVistaTareas] = useState("")
 
   useEffect(
     ()=> {
@@ -21,15 +22,22 @@ function App() {
     []
     )
 
-  function manejadorClick(){
-    mensajeReset(setmensaje)
-    solicitudesFetch("", "GET", "", manejadorRespuesta, manejadorError)
+  function autoUpdate(){
+    if (idVistaTareas==="tareasTotales"){
+      mensajeReset(setmensaje)
+      solicitudesFetch("", "GET", "", manejadorRespuesta, manejadorError)
+    }
+  
+    if (idVistaTareas==="tareasPendientes"){
+      mensajeReset(setmensaje)
+      solicitudesFetch("?rematada=0", "GET","" , manejadorRespuesta, manejadorError)
     }
 
-  function autoUpdate(){
-    mensajeReset(setmensaje)
-    solicitudesFetch("", "GET", "", manejadorRespuesta, manejadorError)
-  }
+    if (idVistaTareas==="tareasTerminadas"){
+      mensajeReset(setmensaje)
+      solicitudesFetch("?rematada=1", "GET","" , manejadorRespuesta, manejadorError)
+    }
+}
   
   function manejadorRespuesta (respuesta) {
       if (respuesta.ok) {const promesaDatos = respuesta.json()
@@ -52,9 +60,8 @@ function App() {
       <header>
         <h1>LISTA DE TAREAS:</h1>
         <div className='botoneseinput'>
-          <button className="actualizar" onClick={manejadorClick}>🔄 Actualizar</button>
           <AgregarTarea aviso={mensaje}></AgregarTarea>
-          <ButtonsFilters setTareasFiltradas={settareas}/>
+          <ButtonsFilters setTareasFiltradas={settareas} idVistaTareas={idVistaTareas} setidVistaTareas = {setidVistaTareas}/>
         </div>
       </header>
       <main>

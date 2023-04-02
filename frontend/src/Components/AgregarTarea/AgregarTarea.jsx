@@ -38,7 +38,7 @@ function AgregarTarea({aviso}) {
     return (
       <>
         <fieldset className={style.nuevasTareas}> 
-            <legend className={style.legend}>¿Alguna otra tarea?</legend>
+            <legend className={style.legend}>Nuevas tareas</legend>
             <input className={style.input} type="text" value={nuevaTarea} placeholder="Añade una tarea" size="40" maxLength="50" onInput={manejadorInput}/>
             <button className={style.button} type="button" onClick={manejadorClick}>Añadir</button>
         </fieldset>

@@ -1,0 +1,23 @@
+.radioFilters{
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+text-align: start;
+border-radius: 20px;
+background-color: bisque;
+font-weight: 500;
+font-size: small;
+margin-top: 15px;
+}
+
+.legend{
+    border: solid;
+    border-width: thin;
+    border-radius: 20px;
+    background-color: white;
+    font-weight: lighter;
+    font-size: small;
+    padding: 5px;
+    background-color: darkseagreen;
+    font-family: cursive;
+}
